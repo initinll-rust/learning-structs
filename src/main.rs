@@ -1,6 +1,6 @@
 pub mod user;
 
-use user::User;
+use user::{User, Luser};
 
 #[derive(Debug)]
 struct Color(i32, i32, i32);
@@ -45,6 +45,15 @@ fn main() {
     // Unit-Like Structs Without Any Fields    
     let subject = AlwaysEqual;
     println!("{:#?}", subject);
+
+    // Struct storing reference using lifetime
+    let luser = Luser{
+        email: "anotheremail@example.com",
+        username: "somelusername",
+        active: true,
+        sign_in_count: 1
+    };
+    println!("{:#?}", luser);
     
 }
 
