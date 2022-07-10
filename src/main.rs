@@ -1,6 +1,8 @@
 pub mod user;
+pub mod rectangle;
 
 use user::{User, Luser, Color, Point, AlwaysEqual, build_user};
+use rectangle::{Rectangle};
 
 fn main() {
 
@@ -46,4 +48,12 @@ fn main() {
         sign_in_count: 1
     };
     println!("{:#?}", luser);
+
+    // Struct Associated function
+    let rect1 = Rectangle::new(30);
+    // Struct method
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
 }
