@@ -2,8 +2,16 @@ pub mod user;
 
 use user::User;
 
+#[derive(Debug)]
+struct Color(i32, i32, i32);
+#[derive(Debug)]
+struct Point(i32, i32, i32);
+
+#[derive(Debug)]
+struct AlwaysEqual;
+
 fn main() {
-    
+
     // Creating an instance of the User struct
     let user1 = build_user("someone1@example.com".to_string(), "someusername1".to_string());
     println!("{:#?}", user1);
@@ -28,6 +36,16 @@ fn main() {
         ..user2
     };
     println!("{:#?}", user4);
+
+    // Using Tuple Structs without Named Fields
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+    println!("{:#?} {:#?}",black, origin);
+
+    // Unit-Like Structs Without Any Fields    
+    let subject = AlwaysEqual;
+    println!("{:#?}", subject);
+    
 }
 
 fn build_user(email: String, username: String) -> User {
